@@ -1,0 +1,173 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+body {
+  min-width: 320px;
+}
+
+.container {
+  max-width: 1420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.form-input {
+  outline: none;
+  width: 300px;
+  margin-bottom: 15px;
+  background-color: rgba(222, 184, 135, 0.5);
+}
+
+.start-game-btn {
+  width: 300px;
+  padding: 10px 35px;
+  font-size: 25px;
+  border-radius: 10px;
+  background-color: hsl(34, 57%, 70%);
+  color: #000000;
+  border: 2px solid rgb(42, 41, 41);
+  cursor: pointer;
+}
+
+.start-game-btn:focus {
+  outline: none;
+}
+
+.start-game-btn:hover {
+  background-color: hsl(34, 74%, 34%);
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.start-game-btn:active {
+  outline: none;
+  background-color: hsl(12, 74%, 34%);
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(78, 6, 6);
+}
+
+.game-over-btn {
+  outline: none;
+  background-color: rgb(180, 1, 1);
+  color: rgb(255, 255, 255);
+}
+
+.card-box {
+  width: 755px;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  transform: translate(10px, -1000px);
+  transition: transform 1s ease-in-out;
+}
+
+.card-box__game-start {
+  transform: translate(10px, 10px);
+}
+
+.card-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(34, 57%, 70%);
+  z-index: 3;
+  transition: opacity .1s ease-out;
+}
+
+.card {
+  display: block;
+  position: relative;
+  text-align: center;
+  min-height: 150px;
+  background-color: hsl(34, 57%, 70%);
+}
+
+.col-3 {
+  -ms-flex: 0 0 24%;
+  flex: 0 0 24%;
+}
+
+.card__image {
+  margin-top: 10px;
+  width: 60%;
+  height: 60%;
+}
+
+.card__number {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  font-size: 35px;
+  font-weight: 600;
+  color: whitesmoke;
+}
+
+.card-active {
+  background-color: rgb(99, 195, 91);
+}
+
+.card-done {
+  background-color: rgb(99, 195, 91);
+}
+
+.card-wrong {
+  background-color: rgb(215, 6, 6);
+}
+
+.card-active .card-close {
+  opacity: 0;
+}
+
+.card-done .card-close {
+  opacity: 0;
+}
+
+.timer {
+  font-size: 30px;
+}
+
+@media (max-width: 800px) {
+  .card-box {
+    width: 100%;
+  }
+
+  .card {
+    min-height: 70px;
+  }
+}
