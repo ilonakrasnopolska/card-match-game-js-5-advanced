@@ -14,7 +14,8 @@ export function conditionOfClick(card) {
   const activeCards = document.querySelectorAll('.card-active') //get array of active cards
 
   if (activeCards.length === 2) {
-    const activeNumbers = Array.from(activeCards).map(card => Number(card.querySelector('.card__number').textContent))
+    const activeNumbers = Array.from(activeCards).map(card =>
+      Number(card.querySelector('.card__number').textContent))
 
     if (activeNumbers[0] === activeNumbers[1]) { //compare active cards number
       activeCards.forEach(card => {

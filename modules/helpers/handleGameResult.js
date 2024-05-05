@@ -8,10 +8,13 @@ export function checkAllPairsFound() {
 
   if (foundPairs.length === totalPairs.length) { //if found all cards
     setTimeout(() => { //timer
+      const timer = document.getElementById('timer')
+      timer.textContent = '00:00'
+      clearInterval(timerInterval) // cleaned timer
+
       alert('Congratulations! You found all pairs!')
       button.textContent = 'Congratulations!'
 
-      clearInterval(timerInterval) // cleaned timer
       cardBox.classList.remove('card-box__game-start') //remove class name to ul with cards of game
       totalPairs.forEach(card => {
         card.classList.remove('card-done')
