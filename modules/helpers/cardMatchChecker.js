@@ -1,8 +1,11 @@
 //Func create the conditions of the click of card
 export function conditionOfClick(card) {
+  let open = true
+  let success = false
 
   if (card.classList.contains('card-done')) {
-    return; // if card contain class card-done, stop
+    success = true
+    return success // if card contain class card-done, stop
   }
 
   if (!card.classList.contains('card-active')) {
@@ -21,19 +24,21 @@ export function conditionOfClick(card) {
       activeCards.forEach(card => {
         card.classList.remove('card-active')
         card.classList.add('card-done')
+        success = true
       })
     } else {
       activeCards.forEach(card => {
         card.classList.add('card-wrong'); // Add class for wrong pairs
-      });
+      })
+      open = false
 
       setTimeout(() => { // Set timeout to remove 'card-wrong' class after 500ms
         activeCards.forEach(card => {
           card.classList.remove('card-active', 'card-wrong')
-        });
-      }, 500);
+        })
+        open = false
+      }, 500)
     }
   }
+  return open
 }
-
-

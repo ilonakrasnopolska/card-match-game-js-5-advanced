@@ -1,16 +1,13 @@
-import {CustomElement} from "./DOM-elements.js"
+import {cardBox, container, CustomElement} from "./DOM-elements.js"
 import {conditionOfClick} from "../helpers/cardMatchChecker.js"
 import {checkAllPairsFound} from "../helpers/handleGameResult.js"
 
 export class Card {
-  constructor(cardContent) {
-    this.data = localStorage.getItem(this.data)
-    this.cardContent = cardContent
-    this._cardNumber = cardContent.number
-    //if array not empty to do parse
-    if (this.data !== "" && this.data !== null) {
-      this.cardContent = JSON.parse(this.data)
-    }
+  constructor(cardBox, cardNumber) {
+    this._cardBox = cardBox
+    this._cardNumber = cardNumber
+    this._open = false
+    this._success = false
   }
 
   createElement(){
@@ -19,19 +16,30 @@ export class Card {
       new CustomElement('div', 'card-close', '').createElement()
     const card =
       new CustomElement('li', 'card col-3', '').createElement()
-
     let number =
       new CustomElement('p', 'card__number', this.cardNumber).createElement()
-    console.log(this.cardNumber)
 
     card.addEventListener('click', () => {
-      if (!card.classList.contains('card-active')) {
-        conditionOfClick(card); // call func with conditions of game
-      }
-      checkAllPairsFound() //call func for checking all found
+      this.flip(card)
     })
+
     card.append(cardClose, number)
+    this._cardBox.append(card)
     return card
+  }
+
+  flip(card){
+    if (!card.classList.contains('card-active')) {
+      if (card.classList.contains('card-done')) {
+        this.success = conditionOfClick(card) // call func with conditions of game
+        console.log(this.success)
+        console.log(this.open)
+      } else {
+        this.open = conditionOfClick(card) // call func with conditions of game
+        console.log(this.open)
+      }
+    }
+    checkAllPairsFound() //call func for checking all found
   }
   set cardNumber(value) {
     this._cardNumber = value
@@ -39,10 +47,18 @@ export class Card {
   get cardNumber() {
     return this._cardNumber
   }
-  set open(value) {}
-  get open() {}
-  set success(value) {}
-  get success() {}
+  set open(value) {
+    this._open = value
+  }
+  get open() {
+    return this._open
+  }
+  set success(value) {
+    this._success = value
+  }
+  get success() {
+    return this._success
+  }
 }
 
 //Func create dom-element to card of game

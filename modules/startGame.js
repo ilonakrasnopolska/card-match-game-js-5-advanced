@@ -9,10 +9,15 @@ export function startGame(arr) {
   clearInterval(timerInterval) // cleaned timer
 
   for (let i = 0; i < arr.length; i++) {
-    let createCard = new Card(arr[i]).createElement()
-    cardBox.append(createCard)
+    new Card(cardBox, arr[i].number).createElement()
   }
 
   saveDataToLocalStorage('newUser', arr)
   container.append(cardBox)
 }
+
+//работаем над тем чтобы карта открывалась в зависимости от свойства
+// let card1 = new Card(container, 1)
+// card1.createElement()
+// card1.open = true
+// console.log(card1)
