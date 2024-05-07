@@ -3,9 +3,9 @@ import {conditionOfClick} from "../helpers/cardMatchChecker.js"
 import {checkAllPairsFound} from "../helpers/handleGameResult.js"
 
 export class Card {
-  constructor(cardBox, cardNumber) {
+  constructor(cardBox, data) {
     this._cardBox = cardBox
-    this._cardNumber = cardNumber
+    this._cardNumber = data.number
     this._open = false
     this._success = false
   }
@@ -20,27 +20,26 @@ export class Card {
       new CustomElement('p', 'card__number', this.cardNumber).createElement()
 
     card.addEventListener('click', () => {
+      if (card.classList.contains('card-done')) {
+        return
+      }
       this.flip(card)
+      console.log(this)
     })
 
     card.append(cardClose, number)
     this._cardBox.append(card)
     return card
   }
-
   flip(card){
-    if (!card.classList.contains('card-active')) {
-      if (card.classList.contains('card-done')) {
-        this.success = conditionOfClick(card) // call func with conditions of game
-        console.log(this.success)
-        console.log(this.open)
-      } else {
-        this.open = conditionOfClick(card) // call func with conditions of game
-        console.log(this.open)
-      }
-    }
+    const { open, success } = conditionOfClick(card)
+
+     this.open = open
+     this.success = success
+
     checkAllPairsFound() //call func for checking all found
   }
+
   set cardNumber(value) {
     this._cardNumber = value
   }
@@ -61,40 +60,30 @@ export class Card {
   }
 }
 
-//Func create dom-element to card of game
-// export function createCardOfGame(cardContent, userName) {
-//
-//   //to get empty object at local storage
-//   const data = localStorage.getItem(userName)
-//
-//   //if array not empty to do parse
-//   if (data !== "" && data !== null) {
-//     cardContent = JSON.parse(data)
-//   }
-//
-//   //div for closing card
-//   const cardClose =
-//     new CustomElement('div', 'card-close', '').createElement()
-//
-//   const card =
-//     new CustomElement('li', 'card col-3', '').createElement()
-//
-//   card.addEventListener('click', () => {
-//     if (!card.classList.contains('card-active')) {
-//       conditionOfClick(card); // call func with conditions of game
-//     }
-//     checkAllPairsFound() //call func for checking all found
-//   })
-//
-//   //create img
-//   let image =
-//     new CustomElement('img', 'card__image', '').createElement()
-//   image.src = cardContent.image; // src to img
-//
-//   let number =
-//     new CustomElement('p', 'card__number', cardContent.number).createElement()
-//
-//   card.append(cardClose, image, number) //add p to li
-//
-//   return card
-// }
+export class AmazingCard extends Card {
+  constructor(cardBox, data) {
+    super(cardBox, data)
+    this._img = data.image
+  }
+
+  createElement() {
+    const card = super.createElement(); // Call the parent class method to create the card element
+    let image = new CustomElement('img', 'card__image', '').createElement()
+    image.src = this.cardImg // Set the image source
+    image.onerror = () => {
+      // Handle image loading errors here
+      console.error('Error loading image')
+    }
+    card.prepend(image) // Append the image to the card before other content
+    return card
+  }
+
+  set cardImg(value) {
+    this._img = value
+  }
+
+  get cardImg() {
+    return this._img
+  }
+}
+
