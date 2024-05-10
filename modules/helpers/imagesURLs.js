@@ -1,6 +1,6 @@
 //array of picture
 export const images = [
-  './img/dog1.png',
+  './img/dog1h.png',
   './img/dog2.png',
   './img/dog3.png',
   './img/dog4.png',

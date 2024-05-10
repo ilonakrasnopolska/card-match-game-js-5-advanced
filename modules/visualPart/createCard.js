@@ -73,6 +73,7 @@ export class AmazingCard extends Card {
     image.onerror = () => {
       // Handle image loading errors here
       console.error('Error loading image')
+      image.src = './img/error.png'
     }
     card.prepend(image) // Append the image to the card before other content
     return card
