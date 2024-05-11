@@ -18,7 +18,7 @@ export function startGame(arr) {
     }
 
     for (let i = 0; i < arr.length; i++) {
-      new AmazingCard(cardBox, arr[i]).createElement()
+      new AmazingCard(cardBox, arr[i])
     }
 
     saveDataToLocalStorage('newUser', arr)

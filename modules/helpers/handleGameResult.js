@@ -14,11 +14,12 @@ export function checkAllPairsFound() {
 
       alert('Congratulations! You found all pairs!')
       button.textContent = 'Congratulations!'
+      button.disabled = true
 
       cardBox.classList.remove('card-box__game-start') //remove class name to ul with cards of game
       totalPairs.forEach(card => {
         card.classList.remove('card-done')
-      });
+      })
     }, 1000)
 
     setTimeout(() => { //back to origin button - start game

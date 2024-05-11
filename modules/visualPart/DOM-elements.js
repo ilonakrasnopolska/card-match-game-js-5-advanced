@@ -1,13 +1,13 @@
 //create CLASS for creating HTML element's , like "DIV , H1"
 export class CustomElement {
   constructor(tagName = 'div', className = '', textContent = '') {
-    this.element = document.createElement(tagName);
-    this.element.className = className;
-    this.element.textContent = textContent;
+    this.element = document.createElement(tagName)
+    this.element.className = className
+    this.element.textContent = textContent
   }
 
   createElement() {
-    return this.element;
+    return this.element
   }
 }
 
@@ -24,6 +24,10 @@ export const title =
 
 export const form =
   new CustomElement('form', 'form', '').createElement()
+
+export const text =
+  new CustomElement('h2', 'form-text', 'Enter amount of cards:').createElement()
+
 
 export const input =
   new CustomElement('input', 'form-input', '').createElement()

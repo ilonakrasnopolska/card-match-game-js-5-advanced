@@ -64,6 +64,7 @@ export class AmazingCard extends Card {
   constructor(cardBox, data) {
     super(cardBox, data)
     this._img = data.image
+    this.createElement()
   }
 
   createElement() {
@@ -71,12 +72,35 @@ export class AmazingCard extends Card {
     let image = new CustomElement('img', 'card__image', '').createElement()
     image.src = this.cardImg // Set the image source
     image.onerror = () => {
-      // Handle image loading errors here
-      console.error('Error loading image')
-      image.src = './img/error.png'
+      this.handleImageError(image,card)
     }
     card.prepend(image) // Append the image to the card before other content
+    this.hideNumbers()
     return card
+  }
+
+  handleImageError(image,card) {
+    // Handle image loading errors here
+    console.error('Error loading image')
+    image.src = './img/error.png'
+    this.flip(card)
+    card.classList.add('error')
+    this.showNumbers()
+  }
+
+  hideNumbers() {
+    const numberArr = cardBox.querySelectorAll('.card__number')
+    for (const number of numberArr) {
+      number.style.display = 'none'
+    }
+  }
+
+  showNumbers() {
+    const numberArr = cardBox.querySelectorAll('.error .card__number')
+    console.log(numberArr)
+    for (const number of numberArr) {
+      number.style.display = 'block'
+    }
   }
 
   set cardImg(value) {

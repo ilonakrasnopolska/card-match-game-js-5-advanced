@@ -47,9 +47,18 @@ body {
 
 .form-input {
   outline: none;
-  width: 300px;
+  width: 90px;
+  height: 90px;
+  padding-left: 15px;
+  font-size: 45px;
   margin-bottom: 15px;
   background-color: rgba(222, 184, 135, 0.5);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .start-game-btn {
@@ -160,6 +169,10 @@ body {
 
 .timer {
   font-size: 30px;
+}
+
+.error {
+  background-color: rgb(169, 169, 169);
 }
 
 @media (max-width: 800px) {
