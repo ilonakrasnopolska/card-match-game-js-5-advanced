@@ -1,0 +1,13 @@
+{
+  "name": "card-match-game-js-5-advanced",
+  "version": "1.0.0",
+  "description": "This is a pair-matching game.",
+  "private": "true",
+  "scripts": {
+    "dev": "serve"
+  },
+  "author": "Ilona",
+  "dependencies": {
+    "serve": "^14.2.3"
+  }
+}
