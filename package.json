@@ -4,10 +4,15 @@
   "description": "This is a pair-matching game.",
   "private": "true",
   "scripts": {
-    "dev": "serve"
+    "dev": "serve",
+    "lint": "eslint ./",
+    "lint:fix": "eslint ./ --fix"
   },
   "author": "Ilona",
   "dependencies": {
     "serve": "^14.2.3"
+  },
+  "devDependencies": {
+    "eslint": "^9.8.0"
   }
 }
