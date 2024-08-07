@@ -6,13 +6,15 @@
   "scripts": {
     "dev": "serve",
     "lint": "eslint ./",
-    "lint:fix": "eslint ./ --fix"
+    "lint:fix": "eslint ./ --fix",
+    "cy:open": "cypress open"
   },
   "author": "Ilona",
   "dependencies": {
     "serve": "^14.2.3"
   },
   "devDependencies": {
+    "cypress": "^13.13.2",
     "eslint": "^9.8.0"
   }
 }

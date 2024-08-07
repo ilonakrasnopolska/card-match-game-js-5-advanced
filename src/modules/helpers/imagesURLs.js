@@ -1,13 +1,15 @@
+export const URL = 'http://localhost:3000'
 //array of picture
 export const images = [
-    './img/dog1.png',
-    './img/dog2.png',
-    './img/dog3.png',
-    './img/dog4.png',
-    './img/dog5.png',
-    './img/dog6.png',
-    './img/dog7.png',
-    './img/dog8.png',
-    './img/dog9.png',
+    `${URL}/src/img/dog1.png`,
+    `${URL}/src/img/dog2.png`,
+    `${URL}/src/img/dog3.png`,
+    `${URL}/src/img/dog4.png`,
+    `${URL}/src/img/dog5.png`,
+    `${URL}/src/img/dog6.png`,
+    `${URL}/src/img/dog7.png`,
+    `${URL}/src/img/dog8.png`,
+    `${URL}/src/img/dog9.png`,
 //   './img/dog789.png'
 ];
+
