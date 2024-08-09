@@ -22,18 +22,37 @@ The pair-matching game is a simple web-based game created using HTML, CSS, and J
 - Dynamic card creation based on the selected number of cards.
 - Timer functionality with a 1-minute countdown.
 - Notification messages for game status (start, win, lose).
+- **New**: Cypress integration for automated testing.
+- **New**: Webpack for project bundling and asset management.
+- **New**: ESLint for code linting a
 
 ## How to Run Locally
 
 1. Clone this repository to your local machine.
-2. Open the `index.html` file in your web browser.
-3. Select the number of cards and start playing the game.
+2. Install dependencies using npm:
+
+   ```bash
+   npm install
+3.Build the project using Webpack :
+  npm run build
+4.Start the development server with one of the following commands:
+  npm run serve
+  npm run dev
+5.Open the index.html file in your web browser.
+
+6.Select the number of cards and start playing the game.
+
 
 ## Technologies Used
 
 - HTML, CSS, JavaScript
 - Bootstrap for styling
 - Class-based programming
+- Webpack for bundling
+-ESLint for code linting
+-Babel for compatibility with older browsers
+-Cypress for automated testing
+-Class-based programming
 
 ## Future Improvements
 
