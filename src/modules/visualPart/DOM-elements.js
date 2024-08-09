@@ -11,7 +11,8 @@ export class CustomElement {
     }
 }
 
-export const container = document.getElementById('game');
+export const container = new CustomElement('div', 'container').createElement();
+container.id = "game"
 
 export const button =
   new CustomElement('button', 'start-game-btn', 'Start Game').createElement();

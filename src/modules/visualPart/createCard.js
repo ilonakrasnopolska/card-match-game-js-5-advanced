@@ -1,7 +1,6 @@
 import {cardBox, container, CustomElement} from "./DOM-elements.js";
 import {conditionOfClick} from "../helpers/cardMatchChecker.js";
 import {checkAllPairsFound} from "../helpers/handleGameResult.js";
-import {URL} from "../helpers/imagesURLs.js";
 
 export class Card {
     constructor(cardBox, data) {
@@ -83,7 +82,7 @@ export class AmazingCard extends Card {
     handleImageError(image,card) {
     // Handle image loading errors here
         console.error('Error loading image');
-        image.src = `${URL}/src/img/error.png`;
+        image.src = `../../assets/img/error.png`;
         this.flip(card);
         card.classList.add('error');
         this.showNumbers();
