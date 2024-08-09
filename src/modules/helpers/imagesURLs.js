@@ -1,13 +1,21 @@
-//array of picture
+import dog1 from '../../assets/img/dog1.png';
+import dog2 from '../../assets/img/dog2.png';
+import dog3 from '../../assets/img/dog3.png';
+import dog4 from '../../assets/img/dog4.png';
+import dog5 from '../../assets/img/dog5.png';
+import dog6 from '../../assets/img/dog6.png';
+import dog7 from '../../assets/img/dog7.png';
+import dog8 from '../../assets/img/dog8.png';
+import dog9 from '../../assets/img/dog9.png';
+
 export const images = [
-  './img/dog1.png',
-  './img/dog2.png',
-  './img/dog3.png',
-  './img/dog4.png',
-  './img/dog5.png',
-  './img/dog6.png',
-  './img/dog7.png',
-  './img/dog8.png',
-  './img/dog9.png',
-//   './img/dog789.png'
-]
+    dog1,
+    dog2,
+    dog3,
+    dog4,
+    dog5,
+    dog6,
+    dog7,
+    dog8,
+    dog9,
+];
